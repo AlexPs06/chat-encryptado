@@ -19,7 +19,7 @@ for (var k in interfaces) {
 }
 
 
-var HOST = '172.20.10.5';
+var HOST = '192.168.1.81';
 var PORT = 4000;
 server.listen(5000);
 
@@ -34,7 +34,17 @@ io.on('connection', function(socket) {
     // socket.on("room",function(data){
     //   socket.join(room);
     // });
-    
+    socket.on('reconection',function(data){
+      io.emit('reconectUser');
+    })
+    socket.on('message',function(data){
+      console.log("message "+ data.message)
+      console.log("idLobby "+ data.idLobby)
+      console.log("idUser "+ data.idUser)
+
+      io.emit('new-message', { message:data.message, idLobby: data.idLobby, idUser: data.idUser })
+
+    })
     socket.on('disconnect', function() {
           var idx = web_sockets.indexOf(socket);
 
