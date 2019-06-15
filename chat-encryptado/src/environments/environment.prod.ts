@@ -1,4 +1,4 @@
 export const environment = {
-  wsURL:'http://172.20.10.5:5000',
+  wsURL:'http://192.168.1.81:5000',
   production: true
 };

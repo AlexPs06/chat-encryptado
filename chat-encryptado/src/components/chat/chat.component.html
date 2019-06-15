@@ -1,4 +1,4 @@
-<div class="container">
+<!--{% comment %} <div class="container">
   <div class="row justify-content-center">
     <div class="col-8 mt-2">
       <div class="input-group shadow  bg-white rounded">
@@ -8,8 +8,32 @@
  </div>
   <div class="row justify-content-center mt-5">
     <div class="col-5">
-      <a  routerLink="/chat" class="btn btn-outline-dark btn-block px-3 ">Enviar</a>  
+
+    
+
+
+
+
+
+
     </div>
  </div>
-</div>
+</div> {% endcomment %}-->
 
+  <form [formGroup]="formGroupMessage" (ngSubmit)="sendMessage()">
+              <div class="form-group">
+                <!-- Chat -->
+                <div class="border-danger rounded" style="height:46%">
+                    <div class="chat" >
+                        <p *ngFor="let msg of array_messages" class="word_in_chat" ><strong>{{ msg.idUser }}:</strong> {{ msg.message }}</p>
+                      <!-- <p class="word_in_chat" ><strong>Augusto:</strong> Hola mundo</p> -->
+                    </div>
+                    <div class="bar-bottom">
+    
+
+                        <input type="email" formControlName="message" class="border border-danger m-2 p-1 rounded position_chat" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mensaje">
+                        <button type="submit" class="btn btn-danger"  >Enviar</button>
+                    </div>  
+                </div>
+              </div>
+          </form>

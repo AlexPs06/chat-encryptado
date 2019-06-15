@@ -1,8 +1,9 @@
 <div class="container">
+ <form [formGroup]="loginFormGroup">
  <div class="row justify-content-center">
   <div class="col-5 mt-5">
     <div class="input-group mb-3">
-      <input type="text" 
+      <input formControlName="username" type="text" 
             placeholder="username"
             class="form-control text-center" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
@@ -11,7 +12,7 @@
   <div class="row justify-content-center">
     <div class="col-5 mt-2">
       <div class="input-group mb-3">
-        <input type="password" 
+        <input formControlName="password" type="password" 
               placeholder="password"
               class="form-control text-center" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
@@ -19,8 +20,9 @@
  </div>
   <div class="row justify-content-center mt-2">
     <div class="col-5 mt-2">
-      <a  routerLink="/chat" class="btn btn-outline-dark btn-block px-3 ">Iniciar sesión</a>  
+      <input   (click)="iniciarSesion()" type="submit" class="btn btn-outline-dark btn-block px-3 " text="Iniciar sesión" > 
     </div>
  </div>
+ </form>
 </div>
 
