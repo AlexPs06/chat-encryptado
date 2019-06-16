@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from '../components/login/login.component';
 import { ChatComponent } from '../components/chat/chat.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-                                     
+import { HttpClientModule } from '@angular/common/http';
 const config : SocketIoConfig = {
   url: environment.wsURL, options:{
 
@@ -18,12 +18,14 @@ const config : SocketIoConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    ChatComponent
+    ChatComponent,
+
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     SocketIoModule.forRoot(config),
 

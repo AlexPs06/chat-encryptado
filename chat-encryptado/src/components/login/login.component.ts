@@ -11,21 +11,21 @@ export class LoginComponent implements OnInit {
   loginFormGroup: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private router : Router,
-  ) { 
+    private router: Router,
+  ) {
 
-    this.loginFormGroup= this.formBuilder.group({
-      'username' : [''],
-      'password' : [''],
+    this.loginFormGroup = this.formBuilder.group({
+      'username': [''],
+      'password': [''],
     })
   }
 
   ngOnInit() {
   }
 
-  iniciarSesion(){
+  iniciarSesion() {
     console.log(this.loginFormGroup.value)
-    if(this.loginFormGroup.get("username").value=="Alex" && this.loginFormGroup.get("password").value=="Alejandro1998" ){
+    if (this.loginFormGroup.get("username").value == "Alex" && this.loginFormGroup.get("password").value == "Alejandro1998") {
       this.router.navigateByUrl("chat");
       localStorage.setItem("username", "Alex")
       localStorage.setItem("idUser", "1")
@@ -34,10 +34,19 @@ export class LoginComponent implements OnInit {
     }
     else
       console.log("no")
-    if(this.loginFormGroup.get("username").value=="Augusto" && this.loginFormGroup.get("password").value=="12345" ){
+    if (this.loginFormGroup.get("username").value == "Augusto" && this.loginFormGroup.get("password").value == "12345") {
       this.router.navigateByUrl("chat");
       localStorage.setItem("username", "Augusto")
       localStorage.setItem("idUser", "2")
+      localStorage.setItem("idLobby", "1")
+
+    }
+    else
+      console.log("no")
+    if (this.loginFormGroup.get("username").value == "Aveno" && this.loginFormGroup.get("password").value == "Aveno") {
+      this.router.navigateByUrl("chat");
+      localStorage.setItem("username", "Aveno")
+      localStorage.setItem("idUser", "3")
       localStorage.setItem("idLobby", "1")
 
     }

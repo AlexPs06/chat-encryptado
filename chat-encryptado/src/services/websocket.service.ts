@@ -4,7 +4,7 @@ import { from, Observable } from 'rxjs';
 import * as io from 'socket.io-client';
 import { environment } from 'src/environments/environment.prod';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,7 @@ export class WebsocketService implements OnInit {
   constructor(
     private socket : Socket,
     private router: Router,
+    private http: HttpClient
   ) { 
     this.checkStatus();
     this.socket1 = io(this.url);
@@ -59,10 +60,16 @@ export class WebsocketService implements OnInit {
     this.socket.emit('winner_event', { username: username, name_image: name_image })
   }
 
-  public getMessages = () => {
+  public getAllMessages(idLobby){
+    return this.http.get<any[]>(this.url+'/messages');
+  }
+
+  
+
+  public getNewMessages = () => {
     return Observable.create((observer) => {
         this.socket.on('new-message', (message) => {
-            observer.next(message);
+          observer.next(message);
         });
     });
   }
