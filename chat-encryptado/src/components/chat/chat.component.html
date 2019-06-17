@@ -1,48 +1,33 @@
-<!--{% comment %} <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8 mt-2">
-      <div class="input-group shadow  bg-white rounded">
-        <textarea class="form-control" style="height:300px; resize: none;" aria-label="With textarea"></textarea>
-      </div>
-    </div>
- </div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-5">
-
-    
-
-
-
-
-
-
-    </div>
- </div>
-</div> {% endcomment %}-->
-<div class="form">
-
+<div class="container">    
   <form [formGroup]="formGroupMessage" (ngSubmit)="sendMessage(target)">
-    <div class="form-group">
-      <!-- Chat -->
-      <div class="border-danger rounded" style="height:46%">
-        <div    class="word_in_chat">
-          <span #target *ngFor="let msg of array_messages">
-            <p class="friends" *ngIf="msg.idUser != currentUser"><strong>{{ msg.idUser }}:</strong>
+      <div class="form-group shadow-none p-3 mb-5 bg-light rounded" 
+           style="height: 400px; overflow-y: auto; overflow-x: hidden;">
+        <!-- Chat -->
+        <div class="row" 
+            *ngFor="let msg of array_messages">
+            <p class="col-5 ml-3 
+                      shadow-sm p-3 mb-5 bg-white rounded 
+                      rounded-right text-break align-self-start" 
+              *ngIf="msg.idUser != currentUser"><strong>{{ msg.idUser }}:</strong>
               {{ msg.message }}</p>
-
-            <p class="me" *ngIf="msg.idUser == currentUser"><strong>{{ msg.idUser }}:</strong>
+    
+            <p class="col-5 mr-3 
+                      rounded-left text-break 
+                      shadow-sm p-3 mb-5 bg-white rounded
+                      align-self-end ml-auto" 
+              *ngIf="msg.idUser == currentUser"><strong>{{ msg.idUser }}:</strong>
               {{ msg.message }}</p>
-          </span>
-
-          <!-- <p class="word_in_chat" ><strong>Augusto:</strong> Hola mundo</p> -->
-        </div>
-        <div class="bar-bottom">
-
-          <input type="email" formControlName="message" class="border border-danger m-2 p-1 rounded position_chat"
-            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mensaje">
-          <button type="submit"  class="btn btn-danger">Enviar</button>
         </div>
       </div>
-    </div>
-  </form>
+      <div class="row">
+        <input type="email" 
+               formControlName="message" 
+               class="col-9 border border-dark m-2 p-1 rounded position_chat"
+               id="exampleInputEmail1" 
+               placeholder="Mensaje">
+
+        <button type="submit"  
+                class="btn btn-outline-dark my-2 col-2">Enviar</button>
+      </div>
+    </form>
 </div>
