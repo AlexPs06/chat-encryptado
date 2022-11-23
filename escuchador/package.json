@@ -21,7 +21,7 @@
     "pg": "^7.4.1",
     "push.js": "^1.0.5",
     "shortid": "^2.2.8",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.5.0"
   },
   "bugs": {
     "url": "https://github.com/AlexPs06/escuchador.git"
